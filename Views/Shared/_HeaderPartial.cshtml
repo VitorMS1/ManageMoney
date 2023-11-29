@@ -1,0 +1,14 @@
+@if (Context.User.Identity.IsAuthenticated)
+{
+    <link rel="stylesheet" href="~/css/cabecalhoInterno.css"/>
+    ViewData["CabecalhoAtual"] = "_CabecalhoInternoPartial";
+}
+else
+{
+    <link rel="stylesheet" href="~/css/cabecalhoExterno.css" />
+    ViewData["CabecalhoAtual"] = "_CabecalhoExternoPartial";
+}
+
+<header>
+    <partial name="@ViewData["CabecalhoAtual"]" />
+</header>

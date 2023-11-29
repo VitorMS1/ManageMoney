@@ -1,0 +1,51 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div id="loginConteudo">
+    <!-- Formulário -->
+    <section class="card">
+            
+        <!-- Cabecalho Login -->
+        <div class="cabecalhoCard">
+            <span>Login</span>
+            <span id="cabecalhoCardSubtitulo">Ainda não possui conta? 
+                <a asp-controller="inicio" asp-action="cadastro" style="color: #4bb550;">Cadastre-se aqui</a> 
+            </span>
+        </div>
+            
+        <!-- Campos formulário -->
+        <form asp-controller="usuario" asp-action="login" id="loginForm">
+            <div class="campoLoginForm">
+                <label asp-for="@Model.NomeUsuario" style="margin-left: 0.2rem;">Nome</label>
+                <input type="text" id="inputNomeEntrar" asp-for="@Model.NomeUsuario" placeholder="JoaoAntonio321">
+                <span asp-validation-for="@Model.NomeUsuario" class="danger"></span>
+            </div>
+                <div class="campoLoginForm">
+                    <section id="loginSettings">
+                        <label asp-for="@Model.Senha" style="margin-left: 0.2rem;"> Senha </label>
+                        <a href="#" style="color: #4bb550;">Esqueceu a senha?</a>
+                    </section>
+                    <input asp-for="@Model.Senha" type="password" id="inputSenhaEntrar">
+                    <span asp-validation-for="@Model.Senha" class="danger"></span>
+                </div>
+            <div id="lembrarSenha">
+                <input asp-for="@Model.LembrarSenha" type="checkbox" id="inputLembrarSenha">
+                <label asp-for="@Model.LembrarSenha" for="inputLembrarSenha"> Lembrar senha? </label>     
+            </div>
+            <partial name="_MensagemPartial"/>
+            <div id="loginButtonDiv">
+                <button type="submit" id="loginButton"> Entrar </button>
+            </div>
+        </Form>  
+    </section>
+
+    <!-- imagem -->
+    <section id="loginImgSec">
+        <span style="font-size: 3.5rem;"> Bem-vindo!!</span>
+        <span style="font-size: 1.2rem;"> Estávamos esperando pelo seu retorno</span>
+        <img src="~/img/tela_login/loginIMG.svg" alt="" id="imgLogin">
+    </section>
+            
+</div>
